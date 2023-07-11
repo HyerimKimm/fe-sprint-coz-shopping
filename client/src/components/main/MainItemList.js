@@ -1,11 +1,9 @@
 import React from 'react';
 
-const MainItemList = () => {
+export const MainItemList = () => {
     return (
         <div>
             
         </div>
     );
 };
-
-export default MainItemList;
