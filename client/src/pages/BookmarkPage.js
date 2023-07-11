@@ -5,16 +5,13 @@ export const BookmarkContainer = styled.div`
     margin: 0;
     padding: 0;
     display: flex;
-    background-color: red;
     width: 100vw;
 `;
 
-const BookmarkPage = () => {
+export const BookmarkPage = () => {
     return (
         <BookmarkContainer>
             this is bookmark page
         </BookmarkContainer>
     );
 };
-
-export default BookmarkPage;
