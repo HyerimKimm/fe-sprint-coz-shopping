@@ -1,11 +1,14 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import triangle from '../../assets/images/dropdownTriangle.svg'
 import dropdownLogoProductList from '../../assets/images/dropdownLogoProductList.svg'
 import dropdownLogoBookmark from '../../assets/images/dropdownLogoBookmark.svg'
 
 export const DropdownContainer = styled.section`
+    position: absolute;
+    top:70%;
+    right: 2vw;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -13,7 +16,8 @@ export const DropdownContainer = styled.section`
     align-items: start;
 `;
 const DropdownTriangleImg = styled.img`
-    margin-left: 130px;
+    margin-left: 140px;
+    filter: drop-shadow(0px -3px 2px rgba(0,0,0,0.1))
 `
 const DropdownItemContainer = styled.section`
     background-color: #fff;
@@ -23,14 +27,12 @@ const DropdownItemContainer = styled.section`
         props.position==='top'?'10px 10px 0px 0px'
         :props.position==='bottom'?'0px 0px 10px 10px':0 };
     background-color: #fff;
-    border-color: rgba(0, 0, 0, 0.10);
-    border-top-style: ${(props)=>props.position===''?'solid':'none'};
-    border-bottom-style: ${(props)=>props.position===''?'solid':'none'};
     cursor: ${(props)=>props.position==='top'?'default':'pointer'};
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1);
 `
 const DropdownSmallLogoImg = styled.img`
     margin-left: 20px;
@@ -43,23 +45,31 @@ const DropdownTitle = styled.span`
     text-align: ${(props)=>props.position==='top'?'center':'start'};
     flex-grow: 1;
 `
-export const Dropdown = () => {
-    const onClickHandler = () => {    }
+const StyledLink = styled(Link)`
+    text-decoration-line : none;
+    text-decoration : none;
+    color: black;
+`
 
+export const Dropdown = () => {
     return (
         <DropdownContainer>
-            <DropdownTriangleImg src={triangle}/>
+            <DropdownTriangleImg src={triangle} border='0'/>
             <DropdownItemContainer position='top'>
                 <DropdownTitle position='top'>{`김혜림님 안녕하세요!`}</DropdownTitle>
             </DropdownItemContainer>
-            <DropdownItemContainer position='' onClick={()=>{onClickHandler()}}>
-                <DropdownSmallLogoImg src={dropdownLogoProductList}/>
-                <DropdownTitle position=''>상품리스트 페이지</DropdownTitle>
-            </DropdownItemContainer>
-            <DropdownItemContainer position='bottom' onClick={()=>{onClickHandler()}}>
-                <DropdownSmallLogoImg src={dropdownLogoBookmark}/>
-                <DropdownTitle position='bottom'>북마크 페이지</DropdownTitle>
-            </DropdownItemContainer>
+            <StyledLink to='/products/list'>
+                <DropdownItemContainer position=''>
+                    <DropdownSmallLogoImg src={dropdownLogoProductList}/>
+                    <DropdownTitle position=''>상품리스트 페이지</DropdownTitle>
+                </DropdownItemContainer>
+            </StyledLink>
+            <StyledLink to='/bookmark'>
+                <DropdownItemContainer position='bottom'>
+                     <DropdownSmallLogoImg src={dropdownLogoBookmark}/>
+                    <DropdownTitle position='bottom'>북마크 페이지</DropdownTitle>
+                </DropdownItemContainer>
+            </StyledLink>
         </DropdownContainer>
     );
 };
