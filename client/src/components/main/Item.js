@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { BookmarkButton } from './BookmarkButton';
+import bookmarkClick from '../../assets/images/bookmarkClick.svg'
 
 export const ItemContainer = styled.section`
     box-sizing: border-box;
@@ -11,32 +11,23 @@ export const ItemContainer = styled.section`
     flex-direction: column;
 `
 export const ItemImgContainer = styled.section`
-    position: relative;
+    margin: 0;
+    padding:0;
     width: 264px;
     height:210px;
-`
-export const BookmarkButtoninItem = styled(BookmarkButton)`
-    position: absolute;
-    top:50%;
-    left: 50%;
-    z-index: 1;
-    cursor: pointer;
-`
-export const ItemImg = styled.img`
-    position: absolute;
-    opacity: 1;
-    top:0px;
-    left: 0px;
     box-sizing: border-box;
-    width: 264px;
-    height: 210px;
     border-radius: 20px;
     box-shadow: 0 0 5px 3px rgba(0,0,0,0.1);
     cursor: pointer;
+    background-image:url(${(props)=>props.imgUrl});
+    background-size: 264px 210px;
+    position: relative;
+    top: 0;
+    left: 0;
 `
 export const ItemInfoContainer = styled.section`
     box-sizing: border-box;
-    padding: 10px;
+    padding: 0px 10px;
     width: 100%;
     height: 54px;
     display: flex;
@@ -64,15 +55,32 @@ export const ItemInfoSubTitle = styled.span`
     width: 100%;
     text-align: ${(props)=>props.type==='Brand'||props.type==='Product'?'right':'left'};
 `
-
+export const BookmarkButton = styled.button`
+    position:absolute;
+    top:0;
+    left: 0;
+    width:30px;
+    height:30px;
+    border: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+export const BookmarkImg = styled.img`
+    width:24px;
+    height:24px;
+`
 
 export const Item = ({item}) => {
     console.log(item.type)
     return (
         <ItemContainer>
-            <ItemImgContainer>
-                <ItemImg src={item.type==='Brand'?`${item.brand_image_url}`:`${item.image_url}`}/>
-                <BookmarkButtoninItem/>
+            <ItemImgContainer imgUrl={item.type==="Brand"?item.brand_image_url:item.image_url}>
+                <BookmarkButton>
+                    <BookmarkImg src={bookmarkClick}/>
+                </BookmarkButton>
             </ItemImgContainer>
             <ItemInfoContainer>
 {/* 제품 카테고리 종류 : Exhibition, Product, Brand, Category */}
