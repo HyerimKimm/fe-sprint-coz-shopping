@@ -1,12 +1,12 @@
 import React from 'react';
-import { bookmarkButton } from './bookmarkButton';
+import { BookmarkButton } from './BookmarkButton';
 
 export default {
-    title: "components/bookmarkButton",
-    component: bookmarkButton
+    title: "components/BookmarkButton",
+    component: BookmarkButton
 }
 
-const Template = (args) => <bookmarkButton></bookmarkButton>
+const Template = (args) => <BookmarkButton></BookmarkButton>
 
-export const bookmarkButtonTemplate = Template.bind({});
+export const BookmarkButtonTemplate = Template.bind({});
 
