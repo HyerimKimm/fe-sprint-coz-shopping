@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import { BookmarkButton } from './BookmarkButton';
 
 export const ItemContainer = styled.section`
     box-sizing: border-box;
@@ -9,7 +10,23 @@ export const ItemContainer = styled.section`
     display: flex;
     flex-direction: column;
 `
+export const ItemImgContainer = styled.section`
+    position: relative;
+    width: 264px;
+    height:210px;
+`
+export const BookmarkButtoninItem = styled(BookmarkButton)`
+    position: absolute;
+    top:50%;
+    left: 50%;
+    z-index: 1;
+    cursor: pointer;
+`
 export const ItemImg = styled.img`
+    position: absolute;
+    opacity: 1;
+    top:0px;
+    left: 0px;
     box-sizing: border-box;
     width: 264px;
     height: 210px;
@@ -48,11 +65,15 @@ export const ItemInfoSubTitle = styled.span`
     text-align: ${(props)=>props.type==='Brand'||props.type==='Product'?'right':'left'};
 `
 
+
 export const Item = ({item}) => {
     console.log(item.type)
     return (
         <ItemContainer>
-            <ItemImg src={item.type==='Brand'?`${item.brand_image_url}`:`${item.image_url}`}/>
+            <ItemImgContainer>
+                <ItemImg src={item.type==='Brand'?`${item.brand_image_url}`:`${item.image_url}`}/>
+                <BookmarkButtoninItem/>
+            </ItemImgContainer>
             <ItemInfoContainer>
 {/* 제품 카테고리 종류 : Exhibition, Product, Brand, Category */}
                 <ItemInfoContainerLine>

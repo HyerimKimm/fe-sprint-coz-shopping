@@ -10,6 +10,6 @@ export const BookmarkImg = styled.img`
 `
 export const BookmarkButton = () => {
     return (
-        <BookmarkImg src={bookmarkNonClick}></BookmarkImg>
+        <BookmarkImg src={bookmarkClick}></BookmarkImg>
     );
 };
