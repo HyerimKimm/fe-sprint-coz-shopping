@@ -2,12 +2,16 @@ import React from 'react';
 import styled from "styled-components";
 import logo from '../../assets/images/headerLogo.png'
 import hamburgerIcon from '../../assets/images/hamburgerButton.svg'
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { updateIsHamburgerClick } from '../../redux/actions/isHamburgerClickAction';
+import { Dropdown } from './Dropdown';
 
 export const HeaderContainer = styled.header`
     box-sizing: border-box;
     background-color: lightblue;
     margin: 0;
-    padding: 0 30px 0 30px;
+    padding: 0 50px 0 40px;
     position: sticky;
     width: 100vw;
     height: 80px;
@@ -31,13 +35,29 @@ export const HeaderLogoTitle = styled.h1`
 export const HeaderHamburgerImg = styled.img`
     cursor: pointer;
 `
-
+const StyledLink = styled(Link)`
+    text-decoration-line : none;
+    text-decoration : none;
+    color: black;
+`
 export const Header = () => {
+    const dispatch = useDispatch();
+    const selector = useSelector(state=>state);
+
+    const onClickHandler = () => {
+        dispatch(updateIsHamburgerClick());
+    }
+
     return (
         <HeaderContainer>
-            <HeaderLogoIconImg src={logo}/>
+            <StyledLink to='/'>
+                <HeaderLogoIconImg src={logo}/>
+            </StyledLink>
             <HeaderLogoTitle>COZ Shopping</HeaderLogoTitle>
-            <HeaderHamburgerImg src={hamburgerIcon}/>
+            <HeaderHamburgerImg src={hamburgerIcon} onClick={onClickHandler}/>
+            {
+                selector.isHamburgerClickReducer?<Dropdown/>:null
+            }
        </HeaderContainer>
     );
 };
