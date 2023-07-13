@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
 import { MainItemList } from '../components/main/MainItemList';
 import { BookmarkItemList } from '../components/main/BookmarkItemList';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateIsHamburgerClick } from '../redux/actions/isHamburgerClickAction';
 
 export const MainContainer = styled.div`
     margin: 0 0 10px 0;
@@ -19,6 +21,13 @@ export const MainTitle = styled.h2`
 `
 
 export const MainPage = () => {
+    const selector = useSelector(state=>state)
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        if(selector.isHamburgerClickReducer) dispatch(updateIsHamburgerClick());
+    },[]);
+
     return (
         <MainContainer>
             <MainTitle>상품 리스트</MainTitle>
