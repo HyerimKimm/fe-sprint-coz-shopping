@@ -27,7 +27,6 @@ export const MainPage = () => {
     const selector = useSelector(state=>state)
     const dispatch = useDispatch();
 
-    console.log(selector)
     useEffect(()=>{
         if(selector.isHamburgerClickReducer) { 
             dispatch(updateIsHamburgerClick()); 
