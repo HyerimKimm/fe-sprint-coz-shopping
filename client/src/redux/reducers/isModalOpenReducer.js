@@ -4,7 +4,10 @@ import { isModalOpenInitialState } from "./initialState";
 const isModalOpenReducer = (state=isModalOpenInitialState, action) => {
     switch(action.type) {
         case UPDATE_IS_MODAL_OPEN : 
-            return action.value;
+            return {
+                value: action.value,
+                imgUrl: action.imgUrl
+            };
         default: 
             return state;
     }

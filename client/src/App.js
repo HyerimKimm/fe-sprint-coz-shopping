@@ -6,10 +6,13 @@ import { ProductListPage } from './pages/ProductListPage';
 import { BookmarkPage } from './pages/BookmarkPage';
 import { Footer } from './components/footer/Footer';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getBookmark } from './redux/actions/bookmarkAction';
+import isModalOpenReducer from './redux/reducers/isModalOpenReducer';
+import { Modal } from './components/modal/Modal';
 
 function App() {
+  const selector = useSelector(state=>state);
   const dispatch = useDispatch();
 
   const getBookmarkInLocalStorage = () => {
@@ -24,6 +27,9 @@ function App() {
   return (
     <Router>
       <div className="App">
+        {
+          selector.isModalOpenReducer.value?<Modal imgUrl={selector.isModalOpenReducer.imgUrl}/>:null
+        }
         <Header/>
           <Routes>
             <Route path='/' element={<MainPage/>}/>
