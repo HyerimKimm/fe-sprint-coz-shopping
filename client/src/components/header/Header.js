@@ -20,6 +20,7 @@ export const HeaderContainer = styled.header`
     align-items: center;
     background: #FFF;
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.10);
+    z-index: 999;
 `;
 export const HeaderLogoIconImg = styled.img`
     box-sizing: border-box;
