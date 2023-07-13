@@ -9,7 +9,6 @@ export const MainPageContainer = styled.main`
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    overflow: auto;
 `
 export const MainPageRowContainer = styled.section`
     box-sizing: border-box;
@@ -17,6 +16,7 @@ export const MainPageRowContainer = styled.section`
     flex-direction: row;
     justify-content: center;
     align-items: start;
+    flex-wrap: wrap;
 `
 
 export const MainItemList = () => {
