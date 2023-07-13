@@ -6,6 +6,7 @@ import { updateIsHamburgerClick } from '../redux/actions/isHamburgerClickAction'
 import { useEffect } from 'react';
 import { getAllItemsService } from '../services/api';
 import { getItems } from '../redux/actions/itemsAction';
+import { getBookmark } from '../redux/actions/bookmarkAction';
 
 
 export const MainContainer = styled.div`
@@ -13,7 +14,6 @@ export const MainContainer = styled.div`
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 `;
 export const MainTitle = styled.h2`
     text-align: start;
@@ -27,6 +27,7 @@ export const MainPage = () => {
     const selector = useSelector(state=>state)
     const dispatch = useDispatch();
 
+    console.log(selector)
     useEffect(()=>{
         if(selector.isHamburgerClickReducer) { 
             dispatch(updateIsHamburgerClick()); 
@@ -34,6 +35,8 @@ export const MainPage = () => {
         getAllItemsService(4).then((res)=>{
             dispatch(getItems(res));
         })
+        const bookmark = JSON.parse(localStorage.getItem('bookmark'));
+        dispatch(getBookmark(bookmark));
     },[])
 
     return (
