@@ -4,32 +4,13 @@ import categoryBrand from '../../assets/images/category_brand.png';
 import categoryCategory from '../../assets/images/category_category.png';
 import categoryExhibition from '../../assets/images/category_exhibition.png';
 import categoryProduct from '../../assets/images/category_product.png'
-import { styled } from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getItems } from '../../redux/actions/itemsAction';
 import { getAllItemsService } from '../../services/api';
 import { getBookmark } from '../../redux/actions/bookmarkAction';
+import { CategoryButton, CategoryContainer, CategoryImg, CategoryTitle } from './CategoryItem.style';
 
-export const CategoryContainer = styled.section`
-    box-sizing: border-box;
-    margin: 24px 18px 12px 18px;
-    width: 82px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`
-export const CategoryButton = styled.button`
-    border: 0;
-    background-color: transparent;
-    cursor: pointer;
-`
-export const CategoryImg = styled.img`
-    width: 82px;
-    height: 82px;
-`
-export const CategoryTitle = styled.span`
-`
+
 export const CategoryItem = ({category}) => {
     const dispatch = useDispatch();
 
