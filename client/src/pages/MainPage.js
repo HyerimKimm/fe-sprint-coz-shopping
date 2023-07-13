@@ -4,6 +4,9 @@ import { BookmarkItemList } from '../components/main/BookmarkItemList';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateIsHamburgerClick } from '../redux/actions/isHamburgerClickAction';
 import { useEffect } from 'react';
+import { getAllItemsService } from '../services/api';
+import { getItems } from '../redux/actions/itemsAction';
+
 
 export const MainContainer = styled.div`
     margin: 0 0 10px 0;
@@ -25,7 +28,12 @@ export const MainPage = () => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        if(selector.isHamburgerClickReducer) { dispatch(updateIsHamburgerClick()); }    
+        if(selector.isHamburgerClickReducer) { 
+            dispatch(updateIsHamburgerClick()); 
+        }    
+        getAllItemsService(4).then((res)=>{
+            dispatch(getItems(res));
+        })
     },[])
 
     return (
