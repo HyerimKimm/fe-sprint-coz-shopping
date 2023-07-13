@@ -9,13 +9,20 @@ import { useEffect } from 'react';
 import { getAllItemsService } from './services/api';
 import { useDispatch } from 'react-redux';
 import { getItems } from './redux/actions/itemsAction';
+import { getBookmark } from './redux/actions/bookmarkAction';
 
 function App() {
   const dispatch = useDispatch();
 
+  const getBookmarkInLocalStorage = () => {
+    const bookmark = JSON.parse(localStorage.getItem('bookmark'));
+    dispatch(getBookmark(bookmark));
+  }
+
   useEffect(()=>{
     getAllItemsService(10).then((res)=>{
       dispatch(getItems(res));
+      getBookmarkInLocalStorage();
     })
   },[])
 

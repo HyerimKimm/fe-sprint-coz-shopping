@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { MainItemList } from '../components/main/MainItemList';
+import { BookmarkItemList } from '../components/main/BookmarkItemList';
 
 export const MainContainer = styled.div`
     margin: 0 0 10px 0;
@@ -21,8 +22,9 @@ export const MainPage = () => {
     return (
         <MainContainer>
             <MainTitle>상품 리스트</MainTitle>
-            <MainItemList length='4'/>
+            <MainItemList/>
             <MainTitle>북마크 리스트</MainTitle>
+            <BookmarkItemList></BookmarkItemList>
         </MainContainer>
     );
 };

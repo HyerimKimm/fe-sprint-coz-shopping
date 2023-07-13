@@ -2,6 +2,8 @@ import React from 'react';
 import { styled } from 'styled-components';
 import bookmarkClick from '../../assets/images/BookmarkClick.svg'
 import bookmarkNonClick from '../../assets/images/bookmarkNonclick.svg'
+import { useDispatch, useSelector } from 'react-redux';
+import { getBookmark } from '../../redux/actions/bookmarkAction';
 
 export const ItemContainer = styled.section`
     box-sizing: border-box;
@@ -75,17 +77,43 @@ export const ItemInfoSubTitle = styled.span`
     text-align: ${(props)=>props.type==='Brand'||props.type==='Product'?'right':'left'};
 `
 
-
 export const Item = ({item}) => {
+    const selector = useSelector(state=>state);
+    const dispatch = useDispatch();
+    let bookmarkIdList = selector.bookmarkReducer.map((e)=>e.id);
+
+    const bookmarkInsert = () => {
+        //로컬 스토리지 - bookmark에 데이터 추가
+        localStorage.setItem('bookmark',JSON.stringify([
+            ...selector.bookmarkReducer, item
+        ]))
+        //dispatch
+        dispatch(getBookmark(JSON.parse(localStorage.getItem('bookmark'))))
+    }
+    const bookmarkRemove = () => {
+        localStorage.setItem('bookmark',
+            JSON.stringify(selector.bookmarkReducer.filter(
+                (e)=>e.id!==item.id
+            ))
+        );
+        dispatch(getBookmark(JSON.parse(localStorage.getItem('bookmark'))));
+    }
     const bookmarkClickHandler = () => {
-        console.log(item.id);
+        if(bookmarkIdList.includes(item.id)) {
+            bookmarkRemove();
+        }
+        else {
+            bookmarkInsert();
+        }
     }
 
     return (
         <ItemContainer>
             <ItemImgContainer imgUrl={item.type==="Brand"?item.brand_image_url:item.image_url}>
                 <BookmarkButton onClick={bookmarkClickHandler}>
-                    <BookmarkImg src={bookmarkNonClick}/>
+                    <BookmarkImg src={
+                        bookmarkIdList.includes(item.id)?bookmarkClick:bookmarkNonClick
+                    }/>
                 </BookmarkButton>
             </ItemImgContainer>
             <ItemInfoContainer>
