@@ -1,6 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import bookmarkClick from '../../assets/images/bookmarkClick.svg'
+import bookmarkClick from '../../assets/images/BookmarkClick.svg'
+import bookmarkNonClick from '../../assets/images/bookmarkNonclick.svg'
+import { useDispatch, useSelector } from 'react-redux';
+import { getBookmark } from '../../redux/actions/bookmarkAction';
 
 export const ItemContainer = styled.section`
     box-sizing: border-box;
@@ -18,12 +21,30 @@ export const ItemImgContainer = styled.section`
     box-sizing: border-box;
     border-radius: 20px;
     box-shadow: 0 0 5px 3px rgba(0,0,0,0.1);
-    cursor: pointer;
     background-image:url(${(props)=>props.imgUrl});
     background-size: 264px 210px;
     position: relative;
     top: 0;
     left: 0;
+    cursor: pointer;
+`
+export const BookmarkButton = styled.button`
+    position:absolute;
+    top:80%;
+    left: 85%;
+    width:35px;
+    height:35px;
+    border: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+`
+export const BookmarkImg = styled.img`
+    width:28px;
+    height:28px;
 `
 export const ItemInfoContainer = styled.section`
     box-sizing: border-box;
@@ -55,31 +76,44 @@ export const ItemInfoSubTitle = styled.span`
     width: 100%;
     text-align: ${(props)=>props.type==='Brand'||props.type==='Product'?'right':'left'};
 `
-export const BookmarkButton = styled.button`
-    position:absolute;
-    top:0;
-    left: 0;
-    width:30px;
-    height:30px;
-    border: 0;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`
-export const BookmarkImg = styled.img`
-    width:24px;
-    height:24px;
-`
 
 export const Item = ({item}) => {
-    console.log(item.type)
+    const selector = useSelector(state=>state);
+    const dispatch = useDispatch();
+    let bookmarkIdList = selector.bookmarkReducer.map((e)=>e.id);
+
+    const bookmarkInsert = () => {
+        //로컬 스토리지 - bookmark에 데이터 추가
+        localStorage.setItem('bookmark',JSON.stringify([
+            ...selector.bookmarkReducer, item
+        ]))
+        //dispatch
+        dispatch(getBookmark(JSON.parse(localStorage.getItem('bookmark'))))
+    }
+    const bookmarkRemove = () => {
+        localStorage.setItem('bookmark',
+            JSON.stringify(selector.bookmarkReducer.filter(
+                (e)=>e.id!==item.id
+            ))
+        );
+        dispatch(getBookmark(JSON.parse(localStorage.getItem('bookmark'))));
+    }
+    const bookmarkClickHandler = () => {
+        if(bookmarkIdList.includes(item.id)) {
+            bookmarkRemove();
+        }
+        else {
+            bookmarkInsert();
+        }
+    }
+
     return (
         <ItemContainer>
             <ItemImgContainer imgUrl={item.type==="Brand"?item.brand_image_url:item.image_url}>
-                <BookmarkButton>
-                    <BookmarkImg src={bookmarkClick}/>
+                <BookmarkButton onClick={bookmarkClickHandler}>
+                    <BookmarkImg src={
+                        bookmarkIdList.includes(item.id)?bookmarkClick:bookmarkNonClick
+                    }/>
                 </BookmarkButton>
             </ItemImgContainer>
             <ItemInfoContainer>

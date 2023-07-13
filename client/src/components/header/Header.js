@@ -8,11 +8,12 @@ import { updateIsHamburgerClick } from '../../redux/actions/isHamburgerClickActi
 import { Dropdown } from './Dropdown';
 
 export const HeaderContainer = styled.header`
+    position: sticky;
+    top:0;
     box-sizing: border-box;
     background-color: lightblue;
     margin: 0;
     padding: 0 50px 0 40px;
-    position: sticky;
     width: 100vw;
     height: 80px;
     display: flex;
@@ -20,6 +21,7 @@ export const HeaderContainer = styled.header`
     align-items: center;
     background: #FFF;
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.10);
+    z-index: 999;
 `;
 export const HeaderLogoIconImg = styled.img`
     box-sizing: border-box;

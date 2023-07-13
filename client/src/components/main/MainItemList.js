@@ -23,7 +23,6 @@ export const MainItemList = () => {
     const selector = useSelector(state=>state);
     let mainPageProductList = selector.itemsReducer.filter((ele,idx)=>idx<4);
 
-    console.log(mainPageProductList)
     return (
         <MainPageContainer>
             <MainPageRowContainer>
