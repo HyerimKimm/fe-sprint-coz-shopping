@@ -8,6 +8,7 @@ import { styled } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItems } from '../../redux/actions/itemsAction';
 import { getAllItemsService } from '../../services/api';
+import { getBookmark } from '../../redux/actions/bookmarkAction';
 
 export const CategoryContainer = styled.section`
     box-sizing: border-box;
@@ -55,6 +56,20 @@ export const CategoryItem = ({category}) => {
             }
             dispatch(getItems(filteredRes));
         })
+        const bookmark = JSON.parse(localStorage.getItem('bookmark'));
+        if(category==='whole') {
+            dispatch(getBookmark(bookmark));
+        } else if(category==='product') {
+            dispatch( getBookmark( bookmark.filter((e)=>e.type==='Product')) )
+        } else if(category==='category') {
+            dispatch( getBookmark( bookmark.filter((e)=>e.type==='Category')) )
+        } else if(category==='exhibition') {
+            dispatch( getBookmark( bookmark.filter((e)=>e.type==='Exhibition')) )
+        } else if(category==='brand') {
+            dispatch( getBookmark( bookmark.filter((e)=>e.type==='Brand')) )
+        } else {
+            return;
+        }
     }
     return (
      <CategoryContainer>
