@@ -6,6 +6,8 @@ import { getBookmark } from '../../redux/actions/bookmarkAction';
 import { BookmarkButton, BookmarkImg, ItemContainer, ItemImgContainer, ItemInfoContainer, ItemInfoContainerLine, 
         ItemInfoSubTitle, ItemInfoTitle, ItemInfoTitleRight} from './Item.style';
 import { updateIsModalOpen } from '../../redux/actions/isModalOpenAction';
+import { insertToastList, removeToastList } from '../../redux/actions/toastAction';
+
 
 export const Item = ({item}) => {
     const selector = useSelector(state=>state);
@@ -18,7 +20,8 @@ export const Item = ({item}) => {
             ...selector.bookmarkReducer, item
         ]))
         //dispatch
-        dispatch(getBookmark(JSON.parse(localStorage.getItem('bookmark'))))
+        dispatch(getBookmark(JSON.parse(localStorage.getItem('bookmark'))));
+        dispatch(insertToastList('insert'))
     }
     const bookmarkRemove = () => {
         localStorage.setItem('bookmark',
@@ -27,6 +30,7 @@ export const Item = ({item}) => {
             ))
         );
         dispatch(getBookmark(JSON.parse(localStorage.getItem('bookmark'))));
+        dispatch(insertToastList('remove'))
     }
     const bookmarkClickHandler = (e) => {
         e.stopPropagation();
@@ -36,6 +40,9 @@ export const Item = ({item}) => {
         else {
             bookmarkInsert();
         }
+        setTimeout(()=>{
+            dispatch(removeToastList())
+        },3000)
     }
     const onImgClickHandler = () => {
         dispatch(updateIsModalOpen( true, item ));

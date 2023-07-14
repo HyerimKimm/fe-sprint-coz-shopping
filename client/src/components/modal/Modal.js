@@ -87,7 +87,6 @@ export const Modal = ({item}) => {
             (e)=>e.id!==item.id
         )))
         dispatch(getBookmark(JSON.parse(localStorage.getItem('bookmark'))))
-
     }
     const modalClose = () => {
         dispatch(updateIsModalOpen(false,null));

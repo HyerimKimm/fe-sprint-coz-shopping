@@ -1,10 +1,16 @@
 //action type
-export const UPDATE_TOAST_LIST = 'UPDATE_TOAST_LIST';
+export const INSERT_TOAST = 'INSERT_TOAST';
+export const REMOVE_TOAST = 'REMOVE_TOAST';
 
 //action creater function
-export const updateToastList = (toastList) => {
+export const insertToastList = (value) => {
     return {
-        type: UPDATE_TOAST_LIST,
-        toastList: toastList,
+        type: INSERT_TOAST,
+        payload: value,
+    }
+}
+export const removeToastList = () => {
+    return {
+        type: REMOVE_TOAST
     }
 }

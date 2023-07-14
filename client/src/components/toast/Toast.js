@@ -1,10 +1,10 @@
-import React from 'react';
 import { styled } from 'styled-components';
 import bookmarkClick from '../../assets/images/BookmarkClick.svg';
 import bookmarkNonClick from '../../assets/images/bookmarkNonclick.svg'
 import { BookmarkImg } from '../main/Item.style';
-import { useSelector } from 'react-redux';
-import toastListReducer from '../../redux/reducers/toastListReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeToastList } from '../../redux/actions/toastAction';
+import { useEffect } from 'react';
 
 export const ToastContainer = styled.div`
     box-sizing: border-box;
@@ -52,7 +52,6 @@ export const ToastBookmarkInsert = () => {
         </ToastRowContainer>
     );
 }
-
 export const ToastBookmarkRemove = () => {
     return (
         <ToastRowContainer>
@@ -64,13 +63,17 @@ export const ToastBookmarkRemove = () => {
 
 export const Toast = () => {
     const selector = useSelector(state=>state);
-    const toastList = selector.toastListReducer;
+    const toastList = selector.toastListReducer.toastList;
+
+    console.log(toastList);
 
     return (
         <ToastContainer>
-        {
-            toastList.map((e)=>e==='insert'?<ToastBookmarkInsert/>:<ToastBookmarkRemove/>)
-        }
+            {
+                toastList.map( (e)=>e==='insert'?<ToastBookmarkInsert/>
+                :e==='remove'?<ToastBookmarkRemove/>
+                :null )
+            }
         </ToastContainer>
     );
 };
