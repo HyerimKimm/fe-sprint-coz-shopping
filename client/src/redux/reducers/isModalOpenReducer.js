@@ -6,7 +6,7 @@ const isModalOpenReducer = (state=isModalOpenInitialState, action) => {
         case UPDATE_IS_MODAL_OPEN : 
             return {
                 value: action.value,
-                imgUrl: action.imgUrl
+                item: action.item,
             };
         default: 
             return state;

@@ -6,8 +6,6 @@ import { getBookmark } from '../../redux/actions/bookmarkAction';
 import { BookmarkButton, BookmarkImg, ItemContainer, ItemImgContainer, ItemInfoContainer, ItemInfoContainerLine, 
         ItemInfoSubTitle, ItemInfoTitle, ItemInfoTitleRight} from './Item.style';
 import { updateIsModalOpen } from '../../redux/actions/isModalOpenAction';
-import isModalOpenReducer from '../../redux/reducers/isModalOpenReducer';
-import { Modal } from '../modal/Modal'
 
 export const Item = ({item}) => {
     const selector = useSelector(state=>state);
@@ -40,8 +38,7 @@ export const Item = ({item}) => {
         }
     }
     const onImgClickHandler = () => {
-        let imgUrl = item.type==="Brand"?item.brand_image_url:item.image_url;
-        dispatch(updateIsModalOpen( true, imgUrl ));
+        dispatch(updateIsModalOpen( true, item ));
     }
 
     return (

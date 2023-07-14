@@ -38,8 +38,9 @@ export const BookmarkButton = styled.button`
     cursor: pointer;
 `
 export const BookmarkImg = styled.img`
-    width:28px;
-    height:28px;
+    width: 30px;
+    height:30px;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,4px,0.15));
 `
 export const ItemInfoContainer = styled.section`
     box-sizing: border-box;
