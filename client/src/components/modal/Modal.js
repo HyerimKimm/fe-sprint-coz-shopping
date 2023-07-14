@@ -32,27 +32,37 @@ export const ModalContainer = styled.section`
     background-size: cover;
     border-radius: 20px;
 `
-export const ModalImg = styled.img`
-`
 export const ModalCloseButton = styled.button`
+    box-sizing: border-box;
+    margin: 15px;
     border:0;
-    background-color: black;
+    background-color: transparent;
     position: absolute;
     top:0;
-    left: 0;
+    right: 0;
     cursor: pointer;
 `
-export const Modal = ({imgUrl}) => {
+export const ModalCloseButtonImg = styled.img`
+    width: 24px;
+    height: 24px;
+`
+export const Modal = ({item}) => {
     const dispatch = useDispatch();
 
-    const onClickHandler = () => {
+    const onModalBackgroundClickHandler = () => {
         dispatch(updateIsModalOpen(false,null));
     }
 
+    const onModalClickHandler = (e) => {
+        e.stopPropagation();
+    }
+
     return (
-        <BackgroundContainer onClick={onClickHandler}>
-            <ModalContainer imgUrl={imgUrl}>
-                <modalCloseButton src={modalCloseButton}/>
+        <BackgroundContainer onClick={onModalBackgroundClickHandler}>
+            <ModalContainer imgUrl={item.type==="Brand"?item.brand_image_url:item.image_url} onClick={onModalClickHandler}>
+                <ModalCloseButton>
+                    <ModalCloseButtonImg src={modalCloseButton}/>
+                </ModalCloseButton>
             </ModalContainer>
         </BackgroundContainer>
     );

@@ -8,7 +8,6 @@ import { Footer } from './components/footer/Footer';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBookmark } from './redux/actions/bookmarkAction';
-import isModalOpenReducer from './redux/reducers/isModalOpenReducer';
 import { Modal } from './components/modal/Modal';
 
 function App() {
@@ -28,7 +27,7 @@ function App() {
     <Router>
       <div className="App">
         {
-          selector.isModalOpenReducer.value?<Modal imgUrl={selector.isModalOpenReducer.imgUrl}/>:null
+          selector.isModalOpenReducer.value?<Modal item={selector.isModalOpenReducer.item}/>:null
         }
         <Header/>
           <Routes>
