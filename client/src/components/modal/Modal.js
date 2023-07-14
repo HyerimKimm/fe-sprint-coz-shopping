@@ -7,6 +7,7 @@ import { BookmarkImg } from '../main/Item.style';
 import bookmarkClick from '../../assets/images/BookmarkClick.svg'
 import bookmarkNonClick from '../../assets/images/bookmarkNonclick.svg'
 import { getBookmark } from '../../redux/actions/bookmarkAction';
+import { insertToastList, removeToastList } from '../../redux/actions/toastAction';
 
 export const BackgroundContainer= styled.div`
     background-color: rgba(255,255,255,0.4);
@@ -15,7 +16,7 @@ export const BackgroundContainer= styled.div`
     left:0;
     width: 100vw;
     height: 100%;
-    z-index: 1000;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,7 +88,6 @@ export const Modal = ({item}) => {
             (e)=>e.id!==item.id
         )))
         dispatch(getBookmark(JSON.parse(localStorage.getItem('bookmark'))))
-
     }
     const modalClose = () => {
         dispatch(updateIsModalOpen(false,null));
@@ -99,10 +99,15 @@ export const Modal = ({item}) => {
         e.stopPropagation();
         if(bookmarkIdList.includes(item.id)) {
             bookmarkRemove();
+            dispatch(insertToastList('remove'))
         }
         else {
             bookmarkInsert();
+            dispatch(insertToastList('insert'))
         }
+        setTimeout(()=>{
+            dispatch(removeToastList())
+        },3000)
     }
 
     return (

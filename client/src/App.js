@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBookmark } from './redux/actions/bookmarkAction';
 import { Modal } from './components/modal/Modal';
+import { Toast } from './components/toast/Toast';
 
 function App() {
   const selector = useSelector(state=>state);
@@ -37,6 +38,7 @@ function App() {
           </Routes>
         <Footer/>
       </div>
+      <Toast/>
     </Router>
   );
 }
