@@ -2,9 +2,7 @@ import { styled } from 'styled-components';
 import bookmarkClick from '../../assets/images/BookmarkClick.svg';
 import bookmarkNonClick from '../../assets/images/bookmarkNonclick.svg'
 import { BookmarkImg } from '../main/Item.style';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeToastList } from '../../redux/actions/toastAction';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 export const ToastContainer = styled.div`
     box-sizing: border-box;
@@ -16,6 +14,7 @@ export const ToastContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: end;
+    z-index: 3;
 `
 export const ToastRowContainer = styled.div`
     box-sizing: border-box;
@@ -64,8 +63,6 @@ export const ToastBookmarkRemove = () => {
 export const Toast = () => {
     const selector = useSelector(state=>state);
     const toastList = selector.toastListReducer.toastList;
-
-    console.log(toastList);
 
     return (
         <ToastContainer>
