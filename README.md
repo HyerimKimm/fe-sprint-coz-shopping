@@ -14,3 +14,6 @@
 - <a href="https://hyerimkim.notion.site/23-07-11-6661cbd3f55a41848e2f22c95b9c7bab?pvs=4">프로젝트 기획, 기능 구현 방법 정리 문서</a>
 
 # 프로젝트 실행 방법
+ - https://hyerimkimm.github.io/coz-shopping-for-pages/
+    - 깃허브 pages로 배포를 했지만 아쉽게도 API 데이터가 https 에서는 검색이 안되는 듯 합니다. (API는 코드스테이츠 제공이라 어쩔수없음)
+ -  프로젝트 clone 후, cd client -> npm run start 로 실행하면 API 데이터도 확인 가능합니다. 
