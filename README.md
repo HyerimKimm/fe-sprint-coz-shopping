@@ -1,5 +1,5 @@
 # COZ Shopping Mall
-- 주어진 Figma 기획 문서를 바탕으로 클라이언트 앱을 제작하는 솔로 프로젝트 결과물입니다. 
+- 주어진 Figma, API, 프로젝트 요구사항 명세서 등 기획 문서를 바탕으로 클라이언트 앱을 제작하는 솔로 프로젝트 결과물입니다. 
 <img src="https://github.com/HyerimKimm/fe-sprint-coz-shopping/assets/50258232/ed3ca5ab-b87b-4e1e-9ea3-6d0d37cbabea" width="650px"/>
 
 # 팀원
