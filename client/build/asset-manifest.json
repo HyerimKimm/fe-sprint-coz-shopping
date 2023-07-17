@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fe-sprint-coz-shopping/static/css/main.e0d640f5.css",
+    "main.js": "/fe-sprint-coz-shopping/static/js/main.dbe1faa1.js",
+    "static/media/category_exhibition.png": "/fe-sprint-coz-shopping/static/media/category_exhibition.543874d81c91d7cd4a1d.png",
+    "static/media/category_whole.png": "/fe-sprint-coz-shopping/static/media/category_whole.bb9921febb60d97d4be7.png",
+    "static/media/category_brand.png": "/fe-sprint-coz-shopping/static/media/category_brand.21230f0b7d7ae3fa1009.png",
+    "static/media/dropdownLogoProductList.svg": "/fe-sprint-coz-shopping/static/media/dropdownLogoProductList.926d01f51057328326ff238644f6b85c.svg",
+    "static/media/dropdownLogoBookmark.svg": "/fe-sprint-coz-shopping/static/media/dropdownLogoBookmark.70ad29baeb6ceb00705809379c67ea90.svg",
+    "static/media/bookmarkNonclick.svg": "/fe-sprint-coz-shopping/static/media/bookmarkNonclick.b08dfc61fc419edc5cc3d176d7a9564f.svg",
+    "static/media/BookmarkClick.svg": "/fe-sprint-coz-shopping/static/media/BookmarkClick.fe30752abe161b013c5ffdaa102a2fa4.svg",
+    "index.html": "/fe-sprint-coz-shopping/index.html",
+    "static/media/hamburgerButton.svg": "/fe-sprint-coz-shopping/static/media/hamburgerButton.8ad24b5ec12d9655116af1d683e5b412.svg",
+    "static/media/dropdownTriangle.svg": "/fe-sprint-coz-shopping/static/media/dropdownTriangle.389eee9efea59c2c18737c765f37040d.svg",
+    "main.e0d640f5.css.map": "/fe-sprint-coz-shopping/static/css/main.e0d640f5.css.map",
+    "main.dbe1faa1.js.map": "/fe-sprint-coz-shopping/static/js/main.dbe1faa1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0d640f5.css",
+    "static/js/main.dbe1faa1.js"
+  ]
+}
