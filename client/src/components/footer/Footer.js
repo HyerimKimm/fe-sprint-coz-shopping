@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
+import tokens from '../../tokens/tokens.json'
+
+const { Gray, White, SmallText, Border } = tokens.global;
 
 export const FooterContainer = styled.footer`
     width: 100vw;
@@ -8,13 +11,13 @@ export const FooterContainer = styled.footer`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.10);
-    background: #FFF;
+    border-top: 1px solid ${Border.value};
+    background: ${White.value};
 `
 export const FooterContent = styled.div`
     margin: 5px;
-    color: #888;
-    font-size: 12px;
+    color: ${Gray.value};
+    font-size: ${SmallText.value}px;
     font-style: normal;
     font-weight: 400;
     line-height: 88.023%;

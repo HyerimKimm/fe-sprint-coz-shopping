@@ -7,7 +7,9 @@ import { useEffect } from 'react';
 import { getAllItemsService } from '../services/api';
 import { getItems } from '../redux/actions/itemsAction';
 import { getBookmark } from '../redux/actions/bookmarkAction';
+import tokens from '../tokens/tokens.json'
 
+const { Heading2 } = tokens.global;
 
 export const MainContainer = styled.div`
     margin: 0 0 10px 0;
@@ -20,7 +22,7 @@ export const MainTitle = styled.h2`
     margin-top: 40px;
     margin-bottom: 10px;
     margin-left: 12%;
-    font-size: 24px;
+    font-size: ${Heading2.value};
 `
 
 export const MainPage = () => {

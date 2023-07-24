@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import triangle from '../../assets/images/dropdownTriangle.svg'
 import dropdownLogoProductList from '../../assets/images/dropdownLogoProductList.svg'
 import dropdownLogoBookmark from '../../assets/images/dropdownLogoBookmark.svg'
+import tokens from '../../tokens/tokens.json'
+
+const { White, Black, Border } = tokens.global;
 
 export const DropdownContainer = styled.section`
     position: absolute;
@@ -17,22 +20,22 @@ export const DropdownContainer = styled.section`
 `;
 const DropdownTriangleImg = styled.img`
     margin-left: 140px;
-    filter: drop-shadow(0px -3px 2px rgba(0,0,0,0.1))
+    filter: drop-shadow(0px -3px 2px ${Border.value})
 `
 const DropdownItemContainer = styled.section`
-    background-color: #fff;
+    background-color: ${White.value};
     width: 200px;
     height: 50px;
     border-radius: ${(props)=>
         props.position==='top'?'10px 10px 0px 0px'
         :props.position==='bottom'?'0px 0px 10px 10px':0 };
-    background-color: #fff;
+    background-color: ${White.value};
     cursor: ${(props)=>props.position==='top'?'default':'pointer'};
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 2px 1px ${Border.value};
 `
 const DropdownSmallLogoImg = styled.img`
     margin-left: 20px;
@@ -48,7 +51,7 @@ const DropdownTitle = styled.span`
 const StyledLink = styled(Link)`
     text-decoration-line : none;
     text-decoration : none;
-    color: black;
+    color: ${Black.value};
 `
 
 export const Dropdown = () => {

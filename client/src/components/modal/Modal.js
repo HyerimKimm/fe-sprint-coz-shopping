@@ -8,6 +8,9 @@ import bookmarkClick from '../../assets/images/BookmarkClick.svg'
 import bookmarkNonClick from '../../assets/images/bookmarkNonclick.svg'
 import { getBookmark } from '../../redux/actions/bookmarkAction';
 import { insertToastList, removeToastList } from '../../redux/actions/toastAction';
+import tokens from '../../tokens/tokens.json'
+
+const { White, Heading2 } = tokens.global;
 
 export const BackgroundContainer= styled.div`
     background-color: rgba(255,255,255,0.4);
@@ -67,8 +70,8 @@ export const ModalBookmarkButton = styled.button`
 `
 export const ModalItemTitle = styled.span`
     margin-left: 2px;
-    font-size: 24px;
-    color:#fff;
+    font-size: ${Heading2.value}px;
+    color:${White.value};
     text-shadow: 0px 0px 4px rgba(0,0,0,0.15);
     font-weight: 700;
 `
