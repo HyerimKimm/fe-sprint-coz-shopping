@@ -10,6 +10,13 @@
 |---|---|---|---|---|---|---|
 |React.js|Storybook|Styled Components|React-Redux|Axios|Figma|UI System|
 
+# 프로젝트 소개
+- 부트캠프에서 제공하는 Figma 문서를 바탕으로 Front 웹을 개발하는 솔로 프로젝트 과제입니다.
+  - Pages : 메인 페이지, 상품 리스트 페이지, 북마크 페이지
+  - Components : 헤더, 푸터, 모달, 카테고리바, 토스트메세지, 상품아이템
+  - Services : getAllItemService - 서비스 목록 전체를 불러옴
+  - Global Style : Token Studio for Figma의 Token을 활용해서 프로젝트에 적용하였고, Typography, icon 을 Atomic Design으로 적용 후 Storybook을 배포하였음. 
+
 # 문서
 - <a href="https://hyerimkim.notion.site/23-07-21-d1b9ab0dbed8422487c9344a8af5e47c?pvs=4">프로젝트 기획, 기능 구현 방법 정리 문서</a>
 
