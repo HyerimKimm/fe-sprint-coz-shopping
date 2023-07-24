@@ -22,8 +22,8 @@
     - ```itemsReducer``` : API 패치 응답을 상태로 관리하는 리듀서
     - ```toastListReducer``` : 토스트 배열 데이터를 상태 관리하기 위한 리듀서
       - 배열 데이터를 상태로 관리할 때
-        - 데이터 추가 : [ ...state, 추가할데이터 ]
-        - 데이터 삭제 : state.slice( 1,100 ) <= 제일 앞 데이터 자름
+        - 데이터 추가 : ```[ ...state, 추가할데이터 ]```
+        - 데이터 삭제 : ```state.slice( 1,100 )``` <= 제일 앞 데이터 자름
   - Global Style : Token Studio for Figma의 Token을 활용해서 프로젝트에 적용하였고, Typography, icon 을 Atomic Design으로 적용 후 Storybook을 배포하였음. 
 
 # 문서
