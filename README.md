@@ -18,3 +18,7 @@
     - 깃허브 pages로 배포를 했지만 아쉽게도 API 데이터가 https 에서는 검색이 안되는 듯 합니다. (API는 코드스테이츠 제공이라 어쩔수없음)
  -  프로젝트 clone 후, cd client -> npm run start 로 실행하면 API 데이터도 확인 가능합니다. 
 <img width="503" alt="스크린샷 2023-07-17 오후 3 22 59" src="https://github.com/HyerimKimm/fe-sprint-coz-shopping/assets/50258232/ceb29c48-16ec-4033-9341-ad74d7a612f1">
+
+ - 스토리북 배포 링크 : https://www.chromatic.com/setup?appId=64be304b12858673479dc015
+<img src="https://github.com/HyerimKimm/fe-sprint-coz-shopping/assets/50258232/bf926d87-205d-427e-8e1b-e221c5f80ff1" width="500px"/>
+<img src="https://github.com/HyerimKimm/fe-sprint-coz-shopping/assets/50258232/3010a919-9b1b-4506-b729-c2d87778d5ee" width="500px"/>
