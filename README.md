@@ -11,7 +11,7 @@
 |React.js|Storybook|Styled Components|React-Redux|Axios|Figma|UI System|
 
 # 문서
-- <a href="https://hyerimkim.notion.site/23-07-11-6661cbd3f55a41848e2f22c95b9c7bab?pvs=4">프로젝트 기획, 기능 구현 방법 정리 문서</a>
+- <a href="https://hyerimkim.notion.site/23-07-21-d1b9ab0dbed8422487c9344a8af5e47c?pvs=4">프로젝트 기획, 기능 구현 방법 정리 문서</a>
 
 # 프로젝트 실행 방법
  - https://hyerimkimm.github.io/coz-shopping-for-pages/
