@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import tokens from '../../tokens/tokens.json'
+
+const { DefaultShadow, White, Black, Heading1 } = tokens.global;
 
 export const HeaderContainer = styled.header`
     position: sticky;
     top:0;
     box-sizing: border-box;
-    background-color: lightblue;
     margin: 0;
     padding: 0 50px 0 40px;
     width: 100vw;
@@ -13,8 +15,8 @@ export const HeaderContainer = styled.header`
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: #FFF;
-    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.10);
+    background: ${White.value};
+    box-shadow: ${DefaultShadow.value.x}px ${DefaultShadow.value.y}px ${DefaultShadow.value.blur}px ${DefaultShadow.value.spread}px ${DefaultShadow.value.color};
     z-index: 1;
 `;
 export const HeaderLogoIconImg = styled.img`
@@ -26,6 +28,7 @@ export const HeaderLogoIconImg = styled.img`
 `
 export const HeaderLogoTitle = styled.h1`
     flex-grow: 1;
+    font-size: ${Heading1.value}px;
     text-align: start;
 `
 export const HeaderHamburgerImg = styled.img`
@@ -34,5 +37,5 @@ export const HeaderHamburgerImg = styled.img`
 export const StyledLink = styled(Link)`
     text-decoration-line : none;
     text-decoration : none;
-    color: black;
+    color: ${Black.value};
 `

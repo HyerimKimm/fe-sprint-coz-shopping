@@ -3,6 +3,9 @@ import bookmarkClick from '../../assets/images/BookmarkClick.svg';
 import bookmarkNonClick from '../../assets/images/bookmarkNonclick.svg'
 import { BookmarkImg } from '../main/Item.style';
 import { useSelector } from 'react-redux';
+import tokens from '../../tokens/tokens.json'
+
+const { White, Black, Border, BodyText } = tokens.global;
 
 export const ToastContainer = styled.div`
     box-sizing: border-box;
@@ -18,7 +21,7 @@ export const ToastContainer = styled.div`
 `
 export const ToastRowContainer = styled.div`
     box-sizing: border-box;
-    background-color: white;
+    background-color: ${White.value};
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -29,13 +32,13 @@ export const ToastRowContainer = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.10);
-    background: #FFF;
-    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    border: 1px solid ${Border.value};
+    background: ${White.value};
+    box-shadow: 0px 0px 8px 0px ${Border.value};
     width: fit-content;
-    color: #000;
+    color: ${Black.value};
     text-align: center;
-    font-size: 16px;
+    font-size: ${BodyText.value}px;
     font-style: normal;
     font-weight: 700;
 `

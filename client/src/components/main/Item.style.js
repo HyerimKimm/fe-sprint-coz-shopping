@@ -1,4 +1,7 @@
 import { styled } from "styled-components"
+import tokens from '../../tokens/tokens.json'
+
+const { Primary, Border } = tokens.global;
 
 export const ItemContainer = styled.section`
     box-sizing: border-box;
@@ -15,7 +18,7 @@ export const ItemImgContainer = styled.section`
     height:210px;
     box-sizing: border-box;
     border-radius: 20px;
-    box-shadow: 0 0 5px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 0 5px 3px ${Border.value};
     background-image:url(${(props)=>props.imgUrl});
     background-size: 264px 210px;
     position: relative;
@@ -65,7 +68,7 @@ export const ItemInfoTitle = styled.span`
     text-align: start;
 `
 export const ItemInfoTitleRight = styled.span`
-    color: ${(props)=>props.type==='Product'?'rgba(69, 44, 221, 1)':'black'};
+    color: ${(props)=>props.type==='Product'?`${Primary.value}`:'black'};
     font-weight: bold;
 `
 export const ItemInfoSubTitle = styled.span`
